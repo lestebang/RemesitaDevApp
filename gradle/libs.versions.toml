@@ -1,6 +1,6 @@
 [versions]
 agp = "8.4.0"
-kotlin = "1.9.0"
+kotlin = "1.9.23"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -10,6 +10,17 @@ activityCompose = "1.9.0"
 composeBom = "2023.08.00"
 systemuiController = "0.27.0"
 materialIconExt = "1.5.4"
+androidxNavigation = "2.7.7"
+androidxHiltNavigationCompose = "1.2.0"
+hilt = "2.51.1"
+okhttp = "5.0.0-alpha.10"
+retrofit = "2.11.0"
+timber = "5.0.1"
+coil = "2.5.0"
+gson = "2.10.1"
+core-splashscreen = "1.0.1"
+converter-gson = "2.9.0"
+constraintlayoutCompose = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,8 +40,29 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" , version.ref = "materialIconExt"}
 google-accompanist = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "systemuiController" }
 
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
+#Dependency injection
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+#OkHttp and Retrofit
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter-gson" }
+#Timber
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+#Image loading
+coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+#Gson
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayoutCompose" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

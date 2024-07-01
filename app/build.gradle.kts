@@ -1,11 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.org.jetbrains.kotlin.kapt)
 }
 
 android {
     namespace = "com.lesteban.remesitadevapp"
     compileSdk = 34
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.lesteban.remesitadevapp"
@@ -30,17 +36,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
     packaging {
         resources {
@@ -64,6 +70,34 @@ dependencies {
 
     // Extended Icons
     implementation(libs.androidx.material.icons.extended)// "androidx.compose.material:material-icons-extended:1.5.4")
+
+    //compose navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // hilt
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.constraintlayout.compose)
+    kapt(libs.hilt.compiler)
+
+    // retrofit
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    //Timber
+    implementation(libs.timber)
+
+    //Coil
+    implementation(libs.coil.kt.compose)
+
+    //Gson
+    implementation(libs.gson)
+
+    //Spash Screen androix
+    implementation(libs.core.splashscreen)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
