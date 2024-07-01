@@ -1,4 +1,4 @@
-package com.lesteban.remesitadevapp
+package com.lesteban.remesitadevapp.ui.screens.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,6 +21,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.lesteban.remesitadevapp.navigation.BottomNavigationBar
+import com.lesteban.remesitadevapp.ui.component.CardsSection
+import com.lesteban.remesitadevapp.ui.component.WalletSection
 import com.lesteban.remesitadevapp.ui.theme.RemesitaDevAppTheme
 
 class MainActivity : ComponentActivity() {

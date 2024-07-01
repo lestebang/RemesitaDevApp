@@ -1,4 +1,4 @@
-package com.lesteban.remesitadevapp
+package com.lesteban.remesitadevapp.navigation
 
 import android.graphics.drawable.Icon
 import androidx.compose.foundation.background
@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.Notifications
-import androidx.compose.material.icons.rounded.Wallet
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -16,7 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.lesteban.remesitadevapp.data.BottomNavigation
+import com.lesteban.remesitadevapp.data.model.view.BottomNavigation
 
 val items = listOf(
     BottomNavigation(

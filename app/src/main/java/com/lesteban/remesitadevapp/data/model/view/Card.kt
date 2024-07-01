@@ -1,4 +1,4 @@
-package com.lesteban.remesitadevapp.data
+package com.lesteban.remesitadevapp.data.model.view
 
 import androidx.compose.ui.graphics.Brush
 

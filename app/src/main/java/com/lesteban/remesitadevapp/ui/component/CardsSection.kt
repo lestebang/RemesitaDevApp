@@ -1,4 +1,4 @@
-package com.lesteban.remesitadevapp
+package com.lesteban.remesitadevapp.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,7 +23,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lesteban.remesitadevapp.data.Card
+import com.lesteban.remesitadevapp.R
+import com.lesteban.remesitadevapp.data.model.view.Card
 import com.lesteban.remesitadevapp.ui.theme.BlueEnd
 import com.lesteban.remesitadevapp.ui.theme.BlueStart
 import com.lesteban.remesitadevapp.ui.theme.GreenEnd

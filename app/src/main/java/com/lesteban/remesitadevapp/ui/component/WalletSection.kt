@@ -1,4 +1,4 @@
-package com.lesteban.remesitadevapp
+package com.lesteban.remesitadevapp.ui.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
