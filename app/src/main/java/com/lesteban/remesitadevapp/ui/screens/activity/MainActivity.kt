@@ -78,7 +78,5 @@ fun HomeScreen() {
 //            FinanceSection()
 //            CurrenciesSection()
         }
-
-
     }
 }

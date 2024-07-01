@@ -21,6 +21,7 @@ gson = "2.10.1"
 core-splashscreen = "1.0.1"
 converter-gson = "2.9.0"
 constraintlayoutCompose = "1.0.1"
+pagingCompose = "3.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,7 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-paging = { group = "androidx.paging", name = "paging-compose" , version.ref = "pagingCompose"}
 androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" , version.ref = "materialIconExt"}
 google-accompanist = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "systemuiController" }
 

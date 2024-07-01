@@ -98,6 +98,9 @@ dependencies {
     //Spash Screen androix
     implementation(libs.core.splashscreen)
 
+    //Paging
+    implementation(libs.androidx.paging)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
