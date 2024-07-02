@@ -24,8 +24,11 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.lesteban.remesitadevapp.navigation.BottomNavigationBar
 import com.lesteban.remesitadevapp.ui.component.CardsSection
 import com.lesteban.remesitadevapp.ui.component.WalletSection
+import com.lesteban.remesitadevapp.ui.screens.home.HomeScreen
 import com.lesteban.remesitadevapp.ui.theme.RemesitaDevAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,32 +54,6 @@ class MainActivity : ComponentActivity() {
             systemUiController.setSystemBarsColor(
                 color = color
             )
-        }
-    }
-}
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview
-@Composable
-fun HomeScreen() {
-    Scaffold(
-        bottomBar = {
-            BottomNavigationBar()
-        }
-    ) { padding ->
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-        ) {
-
-            WalletSection()
-            CardsSection()
-            Spacer(modifier = Modifier.height(16.dp))
-//            FinanceSection()
-//            CurrenciesSection()
         }
     }
 }
