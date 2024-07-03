@@ -8,6 +8,7 @@ import com.lesteban.remesitadevapp.data.model.AuthModel
 import com.lesteban.remesitadevapp.data.repository.RemesitaRespository
 import com.lesteban.remesitadevapp.utils.network.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -20,9 +21,15 @@ class HomeViewModel @Inject constructor(private val repo: RemesitaRespository) :
 
     fun auth() {
         viewModelScope.launch {
-            repo.auth("","").onEach {
+            repo.auth("-","").onEach {
                 authM.value = it
             }.launchIn(viewModelScope)
+        }
+    }
+
+    fun insertUser(authResult: AuthModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.refreshUsers(authResult)
         }
     }
 }

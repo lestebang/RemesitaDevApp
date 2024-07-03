@@ -13,6 +13,7 @@ materialIconExt = "1.6.8"
 androidxNavigation = "2.7.7"
 androidxHiltNavigationCompose = "1.2.0"
 hilt = "2.51.1"
+ksp = "2.51.1"
 okhttp = "5.0.0-alpha.10"
 retrofit = "2.11.0"
 timber = "5.0.1"
@@ -22,6 +23,10 @@ core-splashscreen = "1.0.1"
 converter-gson = "2.9.0"
 constraintlayoutCompose = "1.0.1"
 pagingCompose = "3.2.1"
+roomCompiler = "2.6.1"
+roomKtx = "2.6.1"
+roomRuntime = "2.6.1"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -60,7 +65,11 @@ coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "
 #Gson
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayoutCompose" }
-
+#Room
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "roomCompiler" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -68,3 +77,4 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

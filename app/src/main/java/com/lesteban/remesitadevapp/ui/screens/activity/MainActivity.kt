@@ -35,7 +35,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RemesitaDevAppTheme {
-
                 SetBarColor(color = MaterialTheme.colorScheme.background)
 
                 Surface(modifier = Modifier.fillMaxSize(),

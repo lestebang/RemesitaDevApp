@@ -1,5 +1,6 @@
 package com.lesteban.remesitadevapp.di
 
+import com.lesteban.remesitadevapp.data.datasource.database.AppDatabase
 import com.lesteban.remesitadevapp.data.datasource.remote.ApiService
 import com.lesteban.remesitadevapp.data.repository.RemesitaRespository
 import dagger.Module
@@ -19,9 +20,11 @@ object RepositoryModule  {
     @Provides
     fun provideRemesitaRepository(
         apiService: ApiService,
+        appDatabase: AppDatabase,
     ): RemesitaRespository {
         return RemesitaRespository(
-            apiService
+            apiService,
+            appDatabase
         )
     }
 }
