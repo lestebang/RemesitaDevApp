@@ -25,50 +25,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
-//val items = listOf(
-//    BottomNavigation(
-//        title = "Principal",
-//        icon = Icons.Rounded.Home
-//    ),
-//
-//    BottomNavigation(
-//        title = "Perfil",
-//        icon = Icons.Rounded.AccountCircle
-//    )
-//)
-
-//@Preview
-//@Composable
-//fun BottomNavigationBar() {
-//    NavigationBar {
-//        Row(
-//            modifier = Modifier.background(MaterialTheme.colorScheme.inverseOnSurface)
-//        ) {
-//
-//            items.forEachIndexed { index, item ->
-//                NavigationBarItem(
-//                    selected = index == 0,
-//                    onClick = {},
-//                    icon = {
-//                        Icon(
-//                            imageVector = item.icon,
-//                            contentDescription = item.title,
-//                            tint = MaterialTheme.colorScheme.onBackground
-//                        )
-//                    },
-//                    label = {
-//                        Text(
-//                            text = item.title,
-//                            color = MaterialTheme.colorScheme.onBackground
-//                        )
-//                    }
-//                )
-//            }
-//
-//        }
-//    }
-//}
-
 @Composable
 fun BottomNavigationBar(
     navController: NavHostController, state: MutableState<Boolean>, modifier: Modifier = Modifier

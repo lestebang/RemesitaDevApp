@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lesteban.remesitadevapp.data.model.Balance
 import com.lesteban.remesitadevapp.data.model.ItemsCard
+import com.lesteban.remesitadevapp.data.model.transactions.ItemsTransaction
 import com.lesteban.remesitadevapp.data.repository.RemesitaRespository
 import com.lesteban.remesitadevapp.utils.network.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class StartViewModel @Inject constructor(private val repo: RemesitaRespository) : ViewModel() {
     val balanceRem: MutableState<DataState<Balance>?> = mutableStateOf(null)
     val cardsRem: MutableState<DataState<ItemsCard>?> = mutableStateOf(null)
+    val transRem: MutableState<DataState<ItemsTransaction>?> = mutableStateOf(null)
 
     fun getBalance(data: MutableState<String>) {
         viewModelScope.launch {
@@ -31,6 +33,14 @@ class StartViewModel @Inject constructor(private val repo: RemesitaRespository) 
         viewModelScope.launch {
             repo.getCards(data.value).onEach {
                 cardsRem.value = it
+            }.launchIn(viewModelScope)
+        }
+    }
+
+    fun getTransactions(key: MutableState<String>, number: String,pg:Int,pgSize:Int) {
+        viewModelScope.launch {
+            repo.getTransactions(key.value,number,pg,pgSize).onEach {
+                transRem.value = it
             }.launchIn(viewModelScope)
         }
     }

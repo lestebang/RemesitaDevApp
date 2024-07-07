@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,79 +40,38 @@ import com.lesteban.remesitadevapp.ui.theme.GreenEnd
 import com.lesteban.remesitadevapp.ui.theme.GreenStart
 import com.lesteban.remesitadevapp.ui.theme.PurpleEnd
 import com.lesteban.remesitadevapp.ui.theme.PurpleStart
+import com.lesteban.remesitadevapp.utils.PreferencesManager
 import com.lesteban.remesitadevapp.utils.network.DataState
 import com.lesteban.remesitadevapp.utils.round
 
-
-val cards = listOf(
-
-    Card(
-        cardType = "VISA",
-        cardNumber = "3664 7865 3786 3976",
-        cardName = "Negocios",
-        balance = 46.467,
-        color = getGradient(PurpleStart, PurpleEnd),
-    ),
-
-    Card(
-        cardType = "MASTER CARD",
-        cardNumber = "234 7583 7899 2223",
-        cardName = "Ahorros",
-        balance = 6.467,
-        color = getGradient(BlueStart, BlueEnd),
-    ),
-
-    Card(
-        cardType = "VISA",
-        cardNumber = "0078 3467 3446 7899",
-        cardName = "Escuela",
-        balance = 3.467,
-        color = getGradient(PurpleStart, PurpleEnd),
-    ),
-
-    Card(
-        cardType = "MASTER CARD",
-        cardNumber = "3567 7865 3786 3976",
-        cardName = "Compras",
-        balance = 26.47,
-        color = getGradient(GreenStart, GreenEnd),
-    ),
-)
-
-fun getGradient(
-    startColor: Color,
-    endColor: Color,
-): Brush {
-    return Brush.horizontalGradient(
-        colors = listOf(startColor, endColor)
-    )
-}
-
-var cards1: List<Item> = emptyList()
+var cards: List<Item> = emptyList()
 
 @Composable
 fun CardsSection(startViewModel: StartViewModel) {
+    val context = LocalContext.current
+    val preferencesManager = remember { PreferencesManager(context) }
+    val data = remember { mutableStateOf(preferencesManager.getDataKey("myKey", "")) }
 
     if (startViewModel.cardsRem.value is DataState.Success<ItemsCard>) {
-        cards1 = (startViewModel.cardsRem.value as DataState.Success<ItemsCard>).data.items
+        cards = (startViewModel.cardsRem.value as DataState.Success<ItemsCard>).data.items
+
+        startViewModel.getTransactions(data, cards[0].number,1,10)
 
         LazyRow {
-            items(cards1.size) { index ->
+            items(cards.size) { index ->
                 CardItem(index)
             }
         }
     }
-
-
 }
 
 @Composable
 fun CardItem(
     index: Int
 ) {
-    val card = cards1[index]
+    val card = cards[index]
     var lastItemPaddingEnd = 0.dp
-    if (index == cards1.size - 1) {
+    if (index == cards.size - 1) {
         lastItemPaddingEnd = 16.dp
     }
 
@@ -168,6 +128,13 @@ fun CardItem(
     }
 }
 
-
+fun getGradient(
+    startColor: Color,
+    endColor: Color,
+): Brush {
+    return Brush.horizontalGradient(
+        colors = listOf(startColor, endColor)
+    )
+}
 
 

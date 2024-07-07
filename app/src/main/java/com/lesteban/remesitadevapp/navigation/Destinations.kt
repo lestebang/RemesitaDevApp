@@ -14,19 +14,19 @@ sealed class Destinations(
 ) {
     object StartScreen : Destinations(
         route = "start_screen",
-        title = "Start",
+        title = "Inicio",
         icon = Icons.Outlined.Home
     )
 
     object Profile : Destinations(
         route = "profile_screen",
-        title = "Profile",
+        title = "Perfil",
         icon = Icons.Outlined.SupervisedUserCircle
     )
 
     object Login : Destinations(
         route = "login_screen",
-        title = "Autenticacion",
+        title = "Autenticación",
         icon = Icons.Outlined.Login
     )
 }

@@ -1,0 +1,26 @@
+package com.lesteban.remesitadevapp.data.model.transactions
+
+data class Item(
+    val id: Int,
+    val type: String,
+    val date: String,
+    val amount: String,
+    val amountUSD: String,
+    val exchangeRate: Double,
+    val currency: String,
+    val memo: String,
+    val memo2: String,
+    val category: String,
+    val payee: String,
+    val website: String,
+    val card: String,
+    val externalReference: String,
+    val status: String,
+    val merchant: String,
+    val cardHolder: String,
+    val cardLas4Digit: String,
+    val cardIssuer: String,
+    val cardCurrency: String,
+    val logoURL: String,
+    val ticketID: String,
+)

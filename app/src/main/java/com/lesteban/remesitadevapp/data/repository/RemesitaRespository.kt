@@ -9,6 +9,7 @@ import com.lesteban.remesitadevapp.data.model.AuthModel
 import com.lesteban.remesitadevapp.data.model.Balance
 import com.lesteban.remesitadevapp.data.model.ItemsCard
 import com.lesteban.remesitadevapp.data.model.asDatabaseModel
+import com.lesteban.remesitadevapp.data.model.transactions.ItemsTransaction
 import com.lesteban.remesitadevapp.utils.network.DataState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,6 +56,16 @@ class RemesitaRespository @Inject constructor(
         emit(DataState.Loading)
         try {
             val cardsResult = apiService.cards(key)
+            emit(DataState.Success(cardsResult))
+        } catch (e: Exception) {
+            emit(DataState.Error(e))
+        }
+    }
+
+    override suspend fun getTransactions(key: String, number: String,pg:Int,pgSize:Int): Flow<DataState<ItemsTransaction>> = flow {
+        emit(DataState.Loading)
+        try {
+            val cardsResult = apiService.transactions(key, number,pg,pgSize)
             emit(DataState.Success(cardsResult))
         } catch (e: Exception) {
             emit(DataState.Error(e))

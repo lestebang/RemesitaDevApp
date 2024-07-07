@@ -38,7 +38,7 @@ fun StartScreen() {
         WalletSection(startViewModel)
         CardsSection(startViewModel)
         Spacer(modifier = Modifier.height(16.dp))
-            TransactionsSection(startViewModel)
+        TransactionsSection(startViewModel)
 //            CurrenciesSection()
     }
 }
