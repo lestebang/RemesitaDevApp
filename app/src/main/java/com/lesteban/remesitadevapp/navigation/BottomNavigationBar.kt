@@ -74,7 +74,7 @@ fun BottomNavigationBar(
     navController: NavHostController, state: MutableState<Boolean>, modifier: Modifier = Modifier
 ) {
     val screens = listOf(
-        Destinations.StartScreen, Destinations.Profile
+        Destinations.StartScreen, Destinations.Profile, Destinations.Login
     )
 
     NavigationBar(

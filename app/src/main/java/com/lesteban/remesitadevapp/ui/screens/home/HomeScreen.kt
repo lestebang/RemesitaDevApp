@@ -41,6 +41,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.lesteban.remesitadevapp.data.domain.UserData
 import com.lesteban.remesitadevapp.data.model.AuthModel
 import com.lesteban.remesitadevapp.navigation.BottomNavigationBar
 import com.lesteban.remesitadevapp.navigation.Destinations
@@ -50,24 +51,32 @@ import com.lesteban.remesitadevapp.ui.component.WalletSection
 import com.lesteban.remesitadevapp.ui.screens.profile.ProfileScreen
 import com.lesteban.remesitadevapp.ui.screens.start.StartScreen
 import com.lesteban.remesitadevapp.utils.network.DataState
+import timber.log.Timber
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun HomeScreen() {
-    val homeViewModel = hiltViewModel<HomeViewModel>()
-    LaunchedEffect(true) {
-        homeViewModel.auth()
-    }
-
-    if (homeViewModel.authM.value is DataState.Success<AuthModel>) {
-        homeViewModel.insertUser((homeViewModel.authM.value as DataState.Success<AuthModel>).data)
-    }
-
+//    val homeViewModel = hiltViewModel<HomeViewModel>()
+//    LaunchedEffect(true) {
+//        homeViewModel.getUser()
+//    }
 
     val navController: NavHostController = rememberNavController()
 
     var buttonsVisible = remember { mutableStateOf(true) }
+
+//    if (homeViewModel.userEnt.value?.isEmpty() == true){
+//        Timber.log(1,homeViewModel.authM.value.toString())
+//
+//        navController.navigate(Destinations.Login.route) {
+//            popUpTo(navController.graph.findStartDestination().id) {
+//                saveState = true
+//            }
+//            launchSingleTop = true
+//            restoreState = true
+//        }
+//    }
 
     Scaffold(
         bottomBar = {

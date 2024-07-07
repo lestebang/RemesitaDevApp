@@ -6,6 +6,8 @@ import com.lesteban.remesitadevapp.data.datasource.database.asDomainModel
 import com.lesteban.remesitadevapp.data.datasource.remote.ApiService
 import com.lesteban.remesitadevapp.data.domain.UserData
 import com.lesteban.remesitadevapp.data.model.AuthModel
+import com.lesteban.remesitadevapp.data.model.Balance
+import com.lesteban.remesitadevapp.data.model.ItemsCard
 import com.lesteban.remesitadevapp.data.model.asDatabaseModel
 import com.lesteban.remesitadevapp.utils.network.DataState
 import kotlinx.coroutines.CoroutineScope
@@ -34,6 +36,26 @@ class RemesitaRespository @Inject constructor(
             val authResult = apiService.auth(body)
 
             emit(DataState.Success(authResult))
+        } catch (e: Exception) {
+            emit(DataState.Error(e))
+        }
+    }
+
+    override suspend fun getBalance(key: String): Flow<DataState<Balance>> = flow {
+        emit(DataState.Loading)
+        try {
+            val balanceResult = apiService.balance(key)
+            emit(DataState.Success(balanceResult))
+        } catch (e: Exception) {
+            emit(DataState.Error(e))
+        }
+    }
+
+    override suspend fun getCards(key: String): Flow<DataState<ItemsCard>> = flow {
+        emit(DataState.Loading)
+        try {
+            val cardsResult = apiService.cards(key)
+            emit(DataState.Success(cardsResult))
         } catch (e: Exception) {
             emit(DataState.Error(e))
         }

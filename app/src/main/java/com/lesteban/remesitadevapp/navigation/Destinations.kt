@@ -3,6 +3,7 @@ package com.lesteban.remesitadevapp.navigation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Login
 import androidx.compose.material.icons.outlined.SupervisedUserCircle
 import androidx.compose.ui.graphics.vector.ImageVector
 
@@ -21,5 +22,11 @@ sealed class Destinations(
         route = "profile_screen",
         title = "Profile",
         icon = Icons.Outlined.SupervisedUserCircle
+    )
+
+    object Login : Destinations(
+        route = "login_screen",
+        title = "Autenticacion",
+        icon = Icons.Outlined.Login
     )
 }

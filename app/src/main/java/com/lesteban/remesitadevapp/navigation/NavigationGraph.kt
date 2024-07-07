@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.lesteban.remesitadevapp.ui.screens.login.LoginScreen
 import com.lesteban.remesitadevapp.ui.screens.profile.ProfileScreen
 import com.lesteban.remesitadevapp.ui.screens.start.StartScreen
 
@@ -15,6 +16,9 @@ fun NavigationGraph(navController: NavHostController) {
         }
         composable(Destinations.Profile.route) {
             ProfileScreen()
+        }
+        composable(Destinations.Login.route) {
+            LoginScreen()
         }
     }
 }
