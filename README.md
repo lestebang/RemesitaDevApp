@@ -1,2 +1,5 @@
 # RemesitaDevApp
-App para desarrolladores Remesita Android
+App Remesita Android
+
+Se reciben donaciones aca
+https://vpnxcuba.com/producto/donacion-android-app/
