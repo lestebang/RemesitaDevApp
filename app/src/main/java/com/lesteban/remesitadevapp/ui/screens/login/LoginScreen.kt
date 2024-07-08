@@ -44,7 +44,6 @@ import com.lesteban.remesitadevapp.ui.theme.BlueStart
 import com.lesteban.remesitadevapp.utils.PreferencesManager
 import com.lesteban.remesitadevapp.utils.network.DataState
 
-@Preview
 @Composable
 fun LoginScreen (navHostController: NavHostController) {
     val loginViewModel = hiltViewModel <LoginViewModel>()

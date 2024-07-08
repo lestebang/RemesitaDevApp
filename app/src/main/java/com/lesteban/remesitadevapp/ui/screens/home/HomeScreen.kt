@@ -67,27 +67,8 @@ import timber.log.Timber
 @Preview
 @Composable
 fun HomeScreen() {
-    val homeViewModel = hiltViewModel<HomeViewModel>()
-//    LaunchedEffect(true) {
-//        homeViewModel.getUser()
-//    }
-
     val navController: NavHostController = rememberNavController()
-
-
     var buttonsVisible = remember { mutableStateOf(true) }
-
-//    if (homeViewModel.userEnt.value?.isEmpty() == true){
-//        Timber.log(1,homeViewModel.authM.value.toString())
-//
-//        navController.navigate(Destinations.Login.route) {
-//            popUpTo(navController.graph.findStartDestination().id) {
-//                saveState = true
-//            }
-//            launchSingleTop = true
-//            restoreState = true
-//        }
-//    }
 
     val context = LocalContext.current
     val preferencesManager = remember { PreferencesManager(context) }
@@ -120,7 +101,7 @@ fun HomeScreen() {
             scope.launch {
                 val result = snackbarHostState.showSnackbar(
                     message = "Por favor autentíquese",
-                    duration = SnackbarDuration.Short
+                    duration = SnackbarDuration.Long
                 )
                 when (result) {
                     SnackbarResult.ActionPerformed -> {

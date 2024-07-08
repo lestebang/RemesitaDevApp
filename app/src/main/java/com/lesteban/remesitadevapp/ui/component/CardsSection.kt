@@ -14,11 +14,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
@@ -26,20 +23,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.lesteban.remesitadevapp.R
 import com.lesteban.remesitadevapp.data.model.Item
 import com.lesteban.remesitadevapp.data.model.ItemsCard
-import com.lesteban.remesitadevapp.data.model.view.Card
 import com.lesteban.remesitadevapp.ui.screens.start.StartViewModel
 import com.lesteban.remesitadevapp.ui.theme.BlueEnd
 import com.lesteban.remesitadevapp.ui.theme.BlueStart
-import com.lesteban.remesitadevapp.ui.theme.GreenEnd
-import com.lesteban.remesitadevapp.ui.theme.GreenStart
-import com.lesteban.remesitadevapp.ui.theme.PurpleEnd
-import com.lesteban.remesitadevapp.ui.theme.PurpleStart
 import com.lesteban.remesitadevapp.utils.PreferencesManager
 import com.lesteban.remesitadevapp.utils.network.DataState
 import com.lesteban.remesitadevapp.utils.round
@@ -76,9 +67,6 @@ fun CardItem(
     }
 
     val image = painterResource(id = R.drawable.ic_visa)
-//    if ("VISA") {
-//        image = painterResource(id = R.drawable.ic_mastercard)
-//    }
 
     Box(
         modifier = Modifier
@@ -118,9 +106,9 @@ fun CardItem(
             )
 
             Text(
-                text = if (card.status == "enabled") "Habilitada" else "Desabilitada",
+                text = if (card.status == "enabled") "HABILITADA" else "DESABILITADA",
                 color = Color.White,
-                fontSize = 18.sp,
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold
             )
 

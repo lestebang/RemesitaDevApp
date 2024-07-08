@@ -14,7 +14,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(private val repo: RemesitaRespository): ViewModel(){
-
     val userEnt : MutableState<List<UserData>?> = mutableStateOf(listOf())
 
     fun getUser() {

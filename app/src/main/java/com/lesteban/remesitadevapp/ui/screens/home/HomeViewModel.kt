@@ -21,17 +21,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repo: RemesitaRespository) : ViewModel() {
-    val authM: MutableState<DataState<AuthModel>?> = mutableStateOf(null)
 
-    val userEnt : MutableState<List<UserData>?> = mutableStateOf(listOf())
-
-    fun getUser() {
-        viewModelScope.launch(Dispatchers.IO) {
-            repo.users.collect { list ->
-                withContext(Dispatchers.Main) {
-                    userEnt.value = list
-                }
-            }
-        }
-    }
 }

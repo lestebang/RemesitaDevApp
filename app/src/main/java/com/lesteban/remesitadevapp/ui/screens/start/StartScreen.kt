@@ -32,81 +32,20 @@ fun StartScreen() {
     val preferencesManager = remember { PreferencesManager(context) }
     val data = remember { mutableStateOf(preferencesManager.getDataKey("myKey", "")) }
 
-    val scope = rememberCoroutineScope()
-    val snackbarHostState = remember { SnackbarHostState() }
-
     LaunchedEffect(true) {
         if(data.value != ""){
             startViewModel.getBalance(data)
             startViewModel.getCards(data)
         }
-//        else{
-//            scope.launch {
-//                val result = snackbarHostState.showSnackbar(
-//                    message = "Snackbar",
-//                    actionLabel = "Acción",
-//                    duration = SnackbarDuration.Long
-//                )
-//                when (result) {
-//                    SnackbarResult.ActionPerformed -> {
-//                        //Si presiono la acción del snackbar
-//                    }
-//                    SnackbarResult.Dismissed -> {
-//                        // Si ignoras el snackbar
-//                    }
-//                }
-//            }
-//        }
-
-
-//        if (isConnected) {
-//            scope.launch {
-//                val result = snackbarHostState.showSnackbar(
-//                    message = "conexcion",
-//                    actionLabel = "Acción",
-//                    duration = SnackbarDuration.Long
-//                )
-//                when (result) {
-//                    SnackbarResult.ActionPerformed -> {
-//                        //Si presiono la acción del snackbar
-//                    }
-//                    SnackbarResult.Dismissed -> {
-//                        // Si ignoras el snackbar
-//                    }
-//                }
-//            }
-//        } else {
-//            scope.launch {
-//                val result = snackbarHostState.showSnackbar(
-//                    message = "Sin conexcion",
-//                    actionLabel = "Acción",
-//                    duration = SnackbarDuration.Long
-//                )
-//                when (result) {
-//                    SnackbarResult.ActionPerformed -> {
-//                        //Si presiono la acción del snackbar
-//                    }
-//                    SnackbarResult.Dismissed -> {
-//                        // Si ignoras el snackbar
-//                    }
-//                }
-//            }
-//        }
     }
-
-
-
-
 
     Column(
         modifier = Modifier
             .fillMaxSize()
     ) {
-
         WalletSection(startViewModel)
         CardsSection(startViewModel)
         Spacer(modifier = Modifier.height(16.dp))
         TransactionsSection(startViewModel)
-//            CurrenciesSection()
     }
 }

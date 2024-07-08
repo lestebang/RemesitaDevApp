@@ -44,6 +44,4 @@ class StartViewModel @Inject constructor(private val repo: RemesitaRespository) 
             }.launchIn(viewModelScope)
         }
     }
-
-
 }

@@ -72,7 +72,6 @@ class RemesitaRespository @Inject constructor(
         }
     }
 
-
     val users: Flow<List<UserData>?> =
         appDatabase.userDao.getUsers().map { it?.asDomainModel() }
 
@@ -84,6 +83,4 @@ class RemesitaRespository @Inject constructor(
             Timber.w(e)
         }
     }
-
-
 }
