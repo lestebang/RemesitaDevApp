@@ -34,7 +34,10 @@ import com.lesteban.remesitadevapp.data.model.transactions.ItemsTransaction
 import com.lesteban.remesitadevapp.ui.screens.start.StartViewModel
 import com.lesteban.remesitadevapp.ui.theme.BlueEnd
 import com.lesteban.remesitadevapp.ui.theme.BlueStart
+import com.lesteban.remesitadevapp.ui.theme.GreyEnd
+import com.lesteban.remesitadevapp.ui.theme.GreyStart
 import com.lesteban.remesitadevapp.ui.theme.OrangeEnd
+import com.lesteban.remesitadevapp.ui.theme.OrangeEndLow
 import com.lesteban.remesitadevapp.ui.theme.OrangeStart
 import com.lesteban.remesitadevapp.ui.theme.Purple80
 import com.lesteban.remesitadevapp.ui.theme.PurpleGrey80
@@ -68,43 +71,48 @@ fun CardItemTransaction(
     index: Int
 ) {
     val card = cardsTra[index]
+    var brush  = getGradient(GreyStart, OrangeEndLow)
+    if (card.type == "CRD"){
+        brush  = getGradient(GreyStart, GreyEnd)
+    }
+
         Column(
             modifier = Modifier
-                .clip(RoundedCornerShape(3.dp))
-                .background(getGradient(OrangeStart, OrangeEnd))
+                .clip(RoundedCornerShape(4.dp))
+                .background(brush)
                 .clickable {}
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .padding(vertical = 12.dp, horizontal = 16.dp),
+                .padding(vertical = 8.dp, horizontal = 8.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
 
             Text(
                 text = if (card.type == "CRD") "CRÉDITO" else "DÉBITO",
                 color = Color.White,
-                fontSize = 12.sp,
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold
             )
 
             Text(
                 text = card.date,
                 color = Color.White,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold
+                fontSize = 10.sp,
+                fontWeight = FontWeight.Normal
             )
 
             Text(
-                text = card.amountUSD,
+                text = "$ "+ card.amountUSD,
                 color = Color.White,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold
+                fontSize = 10.sp,
+                fontWeight = FontWeight.Normal
             )
 
             Text(
                 text = card.payee,
                 color = Color.White,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold
+                fontSize = 10.sp,
+                fontWeight = FontWeight.Normal
             )
     }
 }

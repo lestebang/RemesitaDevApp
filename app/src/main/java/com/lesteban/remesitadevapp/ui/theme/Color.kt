@@ -20,5 +20,10 @@ val BlueEnd = Color(0xFF02AEEC)
 val OrangeStart = Color(0xFFFF8400)
 val OrangeEnd = Color(0xFFFDA35F)
 
+val OrangeEndLow = Color(0xFFFFC496)
+
 val GreenStart = Color(0xFF11B114)
 val GreenEnd = Color(0xFF52DB59)
+
+val GreyStart = Color(0xFF616161)
+val GreyEnd = Color(0xFF799EAF)

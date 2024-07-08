@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -69,7 +70,7 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
                     .size(150.dp)
                     .clip(CircleShape)
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
             Column(
                 horizontalAlignment = Alignment.Start
@@ -80,47 +81,39 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
                         .height(22.dp)
                         .padding(top = 6.dp), tint = BlueStart)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = userData.name,Modifier.padding(top = 4.dp),color = BlueEnd)
+                    Text(text = userData.name,Modifier.padding(top = 4.dp),color = BlueStart, fontWeight = FontWeight.Bold)
                 }
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Row {
                     Icon(imageVector = Icons.Sharp.Email, contentDescription = "Correo", modifier = Modifier
                         .height(24.dp)
                         .padding(top = 8.dp), tint = BlueStart)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = userData.email,Modifier.padding(top = 4.dp),color = BlueEnd)
+                    Text(text = userData.email,Modifier.padding(top = 4.dp),color = BlueStart, fontWeight = FontWeight.Bold)
                 }
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Row {
                     Icon(imageVector = Icons.Sharp.Phone, contentDescription = "Telefono", modifier = Modifier
                         .height(24.dp)
                         .padding(top = 8.dp), tint = BlueStart)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = userData.phone,Modifier.padding(top = 4.dp),color = BlueEnd)
+                    Text(text = userData.phone,Modifier.padding(top = 4.dp),color = BlueStart, fontWeight = FontWeight.Bold)
                 }
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Row {
                     Icon(imageVector = Icons.Sharp.Elevator, contentDescription = "level", modifier = Modifier
                         .height(24.dp)
                         .padding(top = 8.dp), tint = BlueStart)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = userData.level,Modifier.padding(top = 4.dp),color = BlueEnd)
+                    Text(text = userData.level,Modifier.padding(top = 4.dp),color = BlueStart, fontWeight = FontWeight.Bold)
                 }
-                Spacer(modifier = Modifier.height(8.dp))
-                Row {
-                    Icon(imageVector = Icons.Sharp.Language, contentDescription = "countryISO", modifier = Modifier
-                        .height(24.dp)
-                        .padding(top = 8.dp), tint = BlueStart)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = userData.countryISO,Modifier.padding(top = 4.dp),color = BlueEnd)
-                }
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Row {
                     Icon(imageVector = Icons.Sharp.CreditCard, contentDescription = "Tarjeta", modifier = Modifier
                         .height(24.dp)
                         .padding(top = 8.dp), tint = BlueStart)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = userData.mainCard,Modifier.padding(top = 4.dp),color = BlueEnd)
+                    Text(text = userData.mainCard,Modifier.padding(top = 4.dp),color = BlueStart, fontWeight = FontWeight.Bold)
                 }
             }
         }

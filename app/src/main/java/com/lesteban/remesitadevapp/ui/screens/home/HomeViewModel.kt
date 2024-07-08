@@ -23,8 +23,6 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repo: RemesitaRespository) : ViewModel() {
     val authM: MutableState<DataState<AuthModel>?> = mutableStateOf(null)
 
-//    var userEnt: List<UserData>? = listOf()
-
     val userEnt : MutableState<List<UserData>?> = mutableStateOf(listOf())
 
     fun getUser() {
@@ -34,16 +32,6 @@ class HomeViewModel @Inject constructor(private val repo: RemesitaRespository) :
                     userEnt.value = list
                 }
             }
-
-//            repo.auth("-bGVzdGViYW5nMTFAZ21haWwuY29t","fhfghfgh").onEach {
-//                authM.value = it
-//            }.launchIn(viewModelScope)
         }
     }
-
-//    fun insertUser(authResult: AuthModel) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repo.refreshUsers(authResult)
-//        }
-//    }
 }

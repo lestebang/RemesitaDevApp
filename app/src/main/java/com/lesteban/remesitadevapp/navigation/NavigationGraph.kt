@@ -18,7 +18,7 @@ fun NavigationGraph(navController: NavHostController) {
             ProfileScreen()
         }
         composable(Destinations.Login.route) {
-            LoginScreen()
+            LoginScreen(navController)
         }
     }
 }
