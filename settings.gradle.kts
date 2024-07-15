@@ -1,14 +1,14 @@
 pluginManagement {
     repositories {
-//        google {
-//            content {
-//                includeGroupByRegex("com\\.android.*")
-//                includeGroupByRegex("com\\.google.*")
-//                includeGroupByRegex("androidx.*")
-//            }
-//        }
-//        mavenCentral()
-//        gradlePluginPortal()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
 
         maven (
             url =  "https://maven.google.com"
@@ -48,8 +48,8 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-//        google()
-//        mavenCentral()
+        google()
+        mavenCentral()
 
         maven (
             url =  "https://maven.google.com"

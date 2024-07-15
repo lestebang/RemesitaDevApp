@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -113,4 +114,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    implementation(libs.gotrue.kt)
+    implementation(libs.compose.auth)
+    implementation(libs.compose.auth.ui)
+    implementation(libs.storage.kt)
+    implementation(libs.postgrest.kt)
+    implementation(libs.realtime.kt)
+    implementation(libs.ktor.client.cio)
+
+    implementation(libs.kotlinx.serialization.json)
 }

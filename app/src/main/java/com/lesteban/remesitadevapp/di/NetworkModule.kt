@@ -1,11 +1,18 @@
 package com.lesteban.remesitadevapp.di
 
+import com.lesteban.remesitadevapp.data.datasource.UserDataSource
 import com.lesteban.remesitadevapp.data.datasource.remote.ApiService
 import com.lesteban.remesitadevapp.data.datasource.remote.ApiURL
+import com.lesteban.remesitadevapp.data.repository.DefaultUserRespository
+import com.lesteban.remesitadevapp.data.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.github.jan.supabase.SupabaseClient
+import io.github.jan.supabase.createSupabaseClient
+import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.realtime.Realtime
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
@@ -88,6 +95,30 @@ object NetworkModule {
     @Provides
     fun provideRestApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSupabaseClient(): SupabaseClient{
+        return createSupabaseClient(
+            supabaseUrl = "https://umghxekwgbnjblrcpcja.supabase.co",
+            supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtZ2h4ZWt3Z2JuamJscmNwY2phIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4NDUzOTksImV4cCI6MjAzMjQyMTM5OX0.CZo8gKBqPi3gxBgPaigqvAEoduuL8Mw6YyqqWjr1qHo"
+        ) {
+            install(Postgrest)
+            install(Realtime)
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserDataSource(client: SupabaseClient): UserDataSource {
+        return UserDataSource(client)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(dataSource: UserDataSource): UserRepository{
+        return DefaultUserRespository(dataSource)
     }
 
 }
